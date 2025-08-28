@@ -1,9 +1,9 @@
 import { starknet } from '@snapshot-labs/checkpoint';
 import { validateAndParseAddress } from 'starknet';
 import { longStringToText } from './utils';
-import { Post } from '../.checkpoint/models';
+import { Post } from '../../.checkpoint/models';
 
-export function createStarknetWriters(indexerName: string) {
+export function createWriters(indexerName: string) {
   const handleNewPost: starknet.Writer = async ({
     block,
     txId,
