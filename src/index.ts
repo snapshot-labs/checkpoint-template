@@ -4,6 +4,7 @@ import path from 'path';
 import Checkpoint, { LogLevel } from '@snapshot-labs/checkpoint';
 import cors from 'cors';
 import express from 'express';
+import { registerIndexers as registerEvmIndexers } from './evm';
 import { registerIndexers as registerStarknetIndexers } from './starknet';
 
 const dir = __dirname.endsWith('dist/src') ? '../' : '';
@@ -16,6 +17,7 @@ const checkpoint = new Checkpoint(schema, {
 });
 
 async function run() {
+  await registerEvmIndexers(checkpoint);
   await registerStarknetIndexers(checkpoint);
 
   await checkpoint.resetMetadata();
