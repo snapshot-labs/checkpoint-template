@@ -1,12 +1,12 @@
 import 'dotenv/config';
-import express from 'express';
-import cors from 'cors';
-import path from 'path';
 import fs from 'fs';
-import Checkpoint, { starknet, LogLevel } from '@snapshot-labs/checkpoint';
+import path from 'path';
+import Checkpoint, { LogLevel, starknet } from '@snapshot-labs/checkpoint';
+import cors from 'cors';
+import express from 'express';
+import checkpointBlocks from './checkpoints.json';
 import { createConfig } from './config';
 import { createStarknetWriters } from './writers';
-import checkpointBlocks from './checkpoints.json';
 
 const dir = __dirname.endsWith('dist/src') ? '../' : '';
 const schemaFile = path.join(__dirname, `${dir}../src/schema.gql`);
@@ -15,8 +15,12 @@ const schema = fs.readFileSync(schemaFile, 'utf8');
 const mainnetConfig = createConfig('mainnet');
 const sepoliaConfig = createConfig('sepolia');
 
-const mainnetIndexer = new starknet.StarknetIndexer(createStarknetWriters('mainnet'));
-const sepoliaIndexer = new starknet.StarknetIndexer(createStarknetWriters('sepolia'));
+const mainnetIndexer = new starknet.StarknetIndexer(
+  createStarknetWriters('mainnet')
+);
+const sepoliaIndexer = new starknet.StarknetIndexer(
+  createStarknetWriters('sepolia')
+);
 
 const checkpoint = new Checkpoint(schema, {
   logLevel: LogLevel.Info,

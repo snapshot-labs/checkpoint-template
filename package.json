@@ -17,20 +17,20 @@
   },
   "prettier": "@snapshot-labs/prettier-config",
   "dependencies": {
-    "@snapshot-labs/checkpoint": "^0.1.0-beta.46",
-    "@types/node": "^18.11.6",
+    "@snapshot-labs/checkpoint": "^0.1.0-beta.65",
+    "@types/node": "^22.18.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "nodemon": "^2.0.19",
     "starknet": "^5.19.3",
     "ts-node": "^10.8.1",
-    "typescript": "^4.9.3"
+    "typescript": "^5.9.1"
   },
   "devDependencies": {
-    "@snapshot-labs/eslint-config": "^0.1.0-beta.7",
-    "@snapshot-labs/prettier-config": "^0.1.0-beta.7",
-    "eslint": "^8.28.0",
-    "prettier": "^2.8.0"
+    "@snapshot-labs/eslint-config": "^0.1.0-beta.21",
+    "@snapshot-labs/prettier-config": "^0.1.0-beta.19",
+    "eslint": "^8.57.1",
+    "prettier": "^3.6.2"
   }
 }
