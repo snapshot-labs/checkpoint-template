@@ -5,7 +5,8 @@
   "description": "Checkpoint starter template",
   "scripts": {
     "codegen": "checkpoint generate",
-    "lint": "eslint src/ --ext .ts --fix",
+    "lint": "eslint src/ --ext .ts",
+    "lint:fix": "yarn lint --fix",
     "prebuild": "yarn codegen",
     "build": "tsc",
     "dev": "nodemon src/index.ts",
